@@ -1,6 +1,7 @@
 import { Box, Card, CardHeader, useTheme } from "@mui/material";
 import type { INews } from "../../../models/News";
 import bannerImage from "assets/banner.jpg";
+import defaultNews from "assets/default-news.png";
 import { useSmallScreen } from "../../../hooks/useSmallScreen";
 
 interface INewsPreviewTileProps {
@@ -18,7 +19,9 @@ const NewsPreviewTile = (props: INewsPreviewTileProps) => {
           transform: "scale(1.03)",
           transition: "transform 0.2s ease-in-out",
           cursor: "pointer",
+          overflow: "hidden",
         },
+
         borderRadius: 3,
         boxShadow: theme.shadows[3],
         width: "100%",
@@ -28,8 +31,8 @@ const NewsPreviewTile = (props: INewsPreviewTileProps) => {
     >
       <CardHeader
         title={news.title}
-        subheader={`Date: ${news.date.getDate()}/${
-          news.date.getMonth() + 1
+        subheader={`Date: ${news.date.getMonth()}/${
+          news.date.getDate() + 1
         }/${news.date.getFullYear()}`}
         slotProps={{
           subheader: {
@@ -48,7 +51,7 @@ const NewsPreviewTile = (props: INewsPreviewTileProps) => {
           alignItems: "center",
           justifyContent: "center",
           color: theme.palette.text.secondary,
-          backgroundImage: `url(${news.images[0] || bannerImage})`,
+          backgroundImage: `url(${news.images[0] || defaultNews})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

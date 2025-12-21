@@ -1,17 +1,40 @@
 import { Box, useTheme } from "@mui/material";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
+import logo from "assets/logo.png";
 
 const Footer = () => {
   const theme = useTheme();
   const smallScreen = useSmallScreen();
   return (
     <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="flex-start"
+      width="100%"
+      pl={2}
       sx={{
         backgroundColor: theme.palette.text.primary,
         color: theme.palette.primary.contrastText,
-        height: smallScreen ? "120px" : "200px",
+        height: smallScreen ? "120px" : "180px",
       }}
-    ></Box>
+    >
+      <Box
+        sx={{
+          //width: "100%",
+          //height: { xs: 300, sm: 330, md: 500 },
+          height: smallScreen ? 100 : 130,
+          width: smallScreen ? 100 : 130,
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: theme.palette.text.secondary,
+          backgroundImage: `url(${logo})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+    </Box>
   );
 };
 export default Footer;

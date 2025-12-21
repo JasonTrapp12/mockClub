@@ -5,7 +5,7 @@ import NewsPreview from "./newsPreview/NewsPreview";
 
 const Home = () => {
   return (
-    <Stack>
+    <Stack width="100%">
       <Banner />
       <NewsPreview />
       {/* <Location /> */}

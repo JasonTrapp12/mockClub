@@ -1,37 +1,67 @@
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Button, Grid, Typography, useTheme } from "@mui/material";
 import { news } from "../../../mockData/news";
 import NewsPreviewTile from "./NewsPreviewTile";
 import { useSmallScreen } from "../../../hooks/useSmallScreen";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
+import SearchBar from "../../../components/common/SearchBar";
+import { useState } from "react";
 
 const NewsPreview = () => {
   const theme = useTheme();
   const smallScreen = useSmallScreen();
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const pageStartIndex = (pageNumber - 1) * 4;
   return (
-    <Grid container width="100%" height="100%" padding={4} spacing={3}>
+    <Grid
+      container
+      width="100%"
+      height="100%"
+      padding={4}
+      spacing={3}
+      overflow="hidden"
+    >
       <Grid size={12}>
-        <Box display="flex" alignItems="center" gap={2}>
-          <NewspaperIcon
-            fontSize="large"
-            sx={{ color: theme.palette.text.primary }}
-          />
-          <Typography
-            variant="h4"
-            color={theme.palette.text.primary}
-            fontWeight={600}
+        <Box display="flex" alignItems="center" gap={5}>
+          <Box
+            display="flex"
+            gap={1}
+            justifyContent="center"
+            alignContent="center"
           >
-            News
-          </Typography>
+            <NewspaperIcon
+              fontSize="large"
+              sx={{ color: theme.palette.text.primary }}
+            />
+            <Typography
+              variant="h4"
+              color={theme.palette.text.primary}
+              fontWeight={600}
+            >
+              News
+            </Typography>
+          </Box>
+          <SearchBar />
         </Box>
       </Grid>
 
-      {news.map((newsItem) => {
+      {news.slice(pageStartIndex, pageStartIndex + 4).map((newsItem) => {
         return (
-          <Grid size={smallScreen ? 12 : 3}>
+          <Grid size={smallScreen ? 12 : 3} key={newsItem.id}>
             <NewsPreviewTile news={newsItem} />
           </Grid>
         );
       })}
+      <Grid size={12} display="flex" justifyContent="flex-end">
+        <Box>
+          <Button variant="text" onClick={() => setPageNumber(pageNumber - 1)}>
+            Previous Page
+          </Button>
+          <Button variant="text" onClick={() => setPageNumber(pageNumber + 1)}>
+            Next Page
+          </Button>
+        </Box>
+      </Grid>
     </Grid>
   );
 };
