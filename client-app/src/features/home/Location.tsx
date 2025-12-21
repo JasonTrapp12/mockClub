@@ -4,53 +4,79 @@ import MapsEmbed from "./MapsEmbed";
 
 const Location = () => {
   const theme = useTheme();
+
   return (
-    <Grid container spacing={2} height="500px">
-      <Grid size={4}>
-        <Box
-          sx={{
-            width: "100%",
-            height: { xs: 300, sm: 330, md: 500 },
-            position: "relative",
-            display: "flex",
-            alignItems: "top",
-            justifyContent: "center",
-            color: theme.palette.text.secondary,
-            backgroundImage: `url(${fieldImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
+    <Box
+      sx={{
+        backgroundColor: "#2b2a2aff",
+        width: "100%",
+        py: { xs: 6, md: 10 },
+      }}
+    >
+      <Grid
+        container
+        spacing={4}
+        alignItems="stretch"
+        maxWidth="xl"
+        mx="auto"
+        px={{ xs: 2, md: 6 }}
+      >
+        <Grid size={{ xs: 12, md: 4 }}>
           <Box
             sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
               height: "100%",
-              backgroundColor: "rgba(0, 0, 0, 0.5)",
-              zIndex: 1,
-            }}
-          />
-          <Typography
-            variant="h2"
-            sx={{
+              minHeight: 320,
               position: "relative",
-              zIndex: 2,
-              textTransform: "uppercase",
-              letterSpacing: 3,
-              textAlign: "center",
-              mt: 3,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: theme.palette.text.secondary,
+              backgroundImage: `url(${fieldImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              borderRadius: 2,
+              overflow: "hidden",
             }}
           >
-            Our Location
-          </Typography>
-        </Box>
+            <Box
+              sx={{
+                position: "absolute",
+                inset: 0,
+                backgroundColor: "rgba(0,0,0,0.6)",
+              }}
+            />
+
+            <Typography
+              variant="h2"
+              sx={{
+                position: "relative",
+                zIndex: 1,
+                textTransform: "uppercase",
+                letterSpacing: 4,
+                textAlign: "center",
+              }}
+            >
+              Our Location
+            </Typography>
+          </Box>
+        </Grid>
+
+        {/* RIGHT SIDE */}
+        <Grid size={{ xs: 12, md: 8 }}>
+          <Box
+            sx={{
+              height: "100%",
+              minHeight: 320,
+              borderRadius: 2,
+              overflow: "hidden",
+            }}
+          >
+            <MapsEmbed />
+          </Box>
+        </Grid>
       </Grid>
-      <Grid size={8}>
-        <MapsEmbed />
-      </Grid>
-    </Grid>
+    </Box>
   );
 };
+
 export default Location;
