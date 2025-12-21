@@ -1,8 +1,6 @@
 import { Box, Card, CardHeader, useTheme } from "@mui/material";
 import type { INews } from "../../../models/News";
-import bannerImage from "assets/banner.jpg";
 import defaultNews from "assets/default-news.png";
-import { useSmallScreen } from "../../../hooks/useSmallScreen";
 
 interface INewsPreviewTileProps {
   news: INews;
@@ -10,7 +8,6 @@ interface INewsPreviewTileProps {
 const NewsPreviewTile = (props: INewsPreviewTileProps) => {
   const { news } = props;
   const theme = useTheme();
-  const smallScreen = useSmallScreen();
   return (
     <Card
       sx={{

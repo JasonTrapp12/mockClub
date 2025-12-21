@@ -9,7 +9,6 @@ import {
   useTheme,
 } from "@mui/material";
 import type { INavButton } from "./NavButton";
-import NavButton from "./NavButton";
 import logo from "assets/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
