@@ -2,20 +2,55 @@ import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
 import logo from "assets/logo.png";
 import NavButton from "./NavButton";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
+import { useNavigate } from "react-router-dom";
 
-const leftNavButtons = ["Home", "About Us", "Register"];
-const rightNavButtons = ["Programs", "Schedule", "Contact Us"];
+const leftNavButtons = [
+  {
+    label: "Home",
+    path: "/",
+  },
+  {
+    label: "About Us",
+    path: "/about",
+  },
+  {
+    label: "Register",
+    path: "/register",
+  },
+];
+const rightNavButtons = [
+  {
+    label: "Programs",
+    path: "/programs",
+  },
+  {
+    label: "Schedule",
+    path: "/schedule",
+  },
+  {
+    label: "Contact Us",
+    path: "/contact",
+  },
+];
 
 const Navbar = () => {
   const theme = useTheme();
   const smallScreen = useSmallScreen();
+  const navigate = useNavigate();
+
+  const handleNavButtonClick = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <Box>
       <AppBar>
         <Toolbar sx={{ justifyContent: "center" }}>
-          {leftNavButtons.map((buttonText) => (
-            <Box key={buttonText} display="flex" justifyContent="flex-start">
-              <NavButton>{buttonText}</NavButton>
+          {leftNavButtons.map((button) => (
+            <Box key={button.label} display="flex" justifyContent="flex-start">
+              <NavButton onClick={() => handleNavButtonClick(button.path)}>
+                {button.label}
+              </NavButton>
             </Box>
           ))}
           <Box
@@ -34,9 +69,11 @@ const Navbar = () => {
               backgroundPosition: "center",
             }}
           />
-          {rightNavButtons.map((buttonText) => (
-            <Box key={buttonText}>
-              <NavButton>{buttonText}</NavButton>
+          {rightNavButtons.map((button) => (
+            <Box key={button.label}>
+              <NavButton onClick={() => handleNavButtonClick(button.path)}>
+                {button.label}
+              </NavButton>
             </Box>
           ))}
         </Toolbar>

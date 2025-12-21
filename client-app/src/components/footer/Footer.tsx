@@ -15,15 +15,15 @@ const Footer = () => {
       sx={{
         backgroundColor: theme.palette.text.primary,
         color: theme.palette.primary.contrastText,
-        height: smallScreen ? "120px" : "180px",
+        height: smallScreen ? "120px" : "140px",
       }}
     >
       <Box
         sx={{
           //width: "100%",
           //height: { xs: 300, sm: 330, md: 500 },
-          height: smallScreen ? 100 : 130,
-          width: smallScreen ? 100 : 130,
+          height: smallScreen ? 100 : 120,
+          width: smallScreen ? 100 : 120,
           position: "relative",
           display: "flex",
           alignItems: "center",
