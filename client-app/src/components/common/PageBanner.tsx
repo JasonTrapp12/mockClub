@@ -1,16 +1,18 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import soccerCoach from "assets/soccer-coach.jpeg";
+import { useSmallScreen } from "../../hooks/useSmallScreen";
 
 interface IPageBannerProps {
   title: string;
 }
 const PageBanner = ({ title }: IPageBannerProps) => {
   const theme = useTheme();
+  const smallScreen = useSmallScreen();
   return (
     <Box
       sx={{
         width: "100%",
-        height: { xs: 200, sm: 310, md: 310 },
+        height: { xs: 300, sm: 310, md: 310 },
         position: "relative",
         display: "flex",
         alignItems: "center",
@@ -33,7 +35,7 @@ const PageBanner = ({ title }: IPageBannerProps) => {
         }}
       />
       <Typography
-        variant="h1"
+        variant={smallScreen ? "h2" : "h1"}
         sx={{
           position: "relative",
           zIndex: 2,
@@ -46,7 +48,7 @@ const PageBanner = ({ title }: IPageBannerProps) => {
             bottom: "-8px",
             width: "0%",
             height: "5px",
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.palette.secondary.main,
             transform: "translateX(-50%)",
             animation: "underlineGrow 1s forwards",
           },

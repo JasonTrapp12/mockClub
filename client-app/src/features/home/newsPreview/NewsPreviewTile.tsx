@@ -21,7 +21,7 @@ const NewsPreviewTile = (props: INewsPreviewTileProps) => {
           cursor: "pointer",
           overflow: "hidden",
         },
-
+        border: `1px solid ${theme.palette.text.primary}`,
         borderRadius: 3,
         boxShadow: theme.shadows[3],
         width: "100%",

@@ -9,7 +9,7 @@ const ContactUs = () => {
     <Stack
       width="100%"
       height="100%"
-      pt={smallScreen ? 10 : 18}
+      pt={smallScreen ? 5 : 18}
       spacing={5}
       alignItems="center"
     >

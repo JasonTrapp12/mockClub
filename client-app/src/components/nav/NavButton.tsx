@@ -1,5 +1,10 @@
 import { Button, useTheme, type ButtonProps } from "@mui/material";
 
+export interface INavButton {
+  label: string;
+  path: string;
+}
+
 interface NavButtonProps extends ButtonProps {}
 
 const NavButton = (props: NavButtonProps) => {

@@ -3,35 +3,8 @@ import logo from "assets/logo.png";
 import NavButton from "./NavButton";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
 import { useNavigate } from "react-router-dom";
-
-const leftNavButtons = [
-  {
-    label: "Home",
-    path: "/",
-  },
-  {
-    label: "About Us",
-    path: "/about",
-  },
-  {
-    label: "Register",
-    path: "/register",
-  },
-];
-const rightNavButtons = [
-  {
-    label: "Programs",
-    path: "/programs",
-  },
-  {
-    label: "Schedule",
-    path: "/schedule",
-  },
-  {
-    label: "Contact Us",
-    path: "/contact",
-  },
-];
+import MobileNav from "./MobileNav";
+import { leftNavButtons, rightNavButtons } from "./navButtons";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -42,7 +15,12 @@ const Navbar = () => {
     navigate(path);
   };
 
-  return (
+  return smallScreen ? (
+    <MobileNav
+      leftNavButtons={leftNavButtons}
+      rightNavButtons={rightNavButtons}
+    />
+  ) : (
     <Box>
       <AppBar>
         <Toolbar sx={{ justifyContent: "center" }}>

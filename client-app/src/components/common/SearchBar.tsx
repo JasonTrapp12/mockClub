@@ -14,10 +14,10 @@ const SearchBar = () => {
             borderColor: theme.palette.divider,
           },
           "&:hover fieldset": {
-            borderColor: theme.palette.primary.main,
+            borderColor: theme.palette.secondary.main,
           },
           "&.Mui-focused fieldset": {
-            borderColor: theme.palette.primary.main,
+            borderColor: theme.palette.secondary.main,
           },
         },
         "& .MuiInputBase-input": {

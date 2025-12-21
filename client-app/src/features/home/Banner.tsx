@@ -1,14 +1,15 @@
 import { Box, Stack, Typography, useTheme } from "@mui/material";
 import bannerImage from "assets/banner.jpg";
+import { useSmallScreen } from "../../hooks/useSmallScreen";
 
 const Banner = () => {
   const theme = useTheme();
-
+  const smallScreen = useSmallScreen();
   return (
     <Box
       sx={{
         width: "100%",
-        height: { xs: 300, sm: 330, md: 500 },
+        height: { xs: 310, sm: 330, md: 500 },
         position: "relative",
         display: "flex",
         alignItems: "center",
@@ -17,6 +18,7 @@ const Banner = () => {
         backgroundImage: `url(${bannerImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        pt: "40px",
       }}
     >
       <Box
@@ -32,7 +34,7 @@ const Banner = () => {
       />
       <Stack>
         <Typography
-          variant="h1"
+          variant={smallScreen ? "h3" : "h1"}
           sx={{
             position: "relative",
             zIndex: 2,
@@ -41,16 +43,15 @@ const Banner = () => {
             textAlign: "center",
           }}
         >
-          Name or Slogan Here
+          Name Here
         </Typography>
         <Typography
-          variant="h4"
+          variant={smallScreen ? "h6" : "h4"}
           sx={{
             position: "relative",
             zIndex: 2,
             textTransform: "uppercase",
             letterSpacing: 3,
-
             textAlign: "center",
           }}
         >
