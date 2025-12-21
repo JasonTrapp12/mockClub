@@ -1,10 +1,10 @@
-import { AppBar, Avatar, Box, Toolbar, useTheme } from "@mui/material";
+import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
 import logo from "assets/logo.png";
 import NavButton from "./NavButton";
-import { useSmallScreen } from "../hooks/useSmallScreen";
+import { useSmallScreen } from "../../hooks/useSmallScreen";
 
-const leftNavButtons = ["About", "Teams"];
-const rightNavButtons = ["", "Schedule"];
+const leftNavButtons = ["Home", "About Us", "Register"];
+const rightNavButtons = ["Programs", "Schedule", "Contact Us"];
 
 const Navbar = () => {
   const theme = useTheme();

@@ -1,7 +1,6 @@
 import { Box, Stack, Typography, useTheme } from "@mui/material";
 import bannerImage from "assets/banner.jpg";
 
-
 const Banner = () => {
   const theme = useTheme();
 
