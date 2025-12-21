@@ -54,10 +54,18 @@ const NewsPreview = () => {
       })}
       <Grid size={12} display="flex" justifyContent="flex-end">
         <Box>
-          <Button variant="text" onClick={() => setPageNumber(pageNumber - 1)}>
+          <Button
+            variant="text"
+            sx={{ color: theme.palette.secondary.main }}
+            onClick={() => setPageNumber(pageNumber - 1)}
+          >
             Previous Page
           </Button>
-          <Button variant="text" onClick={() => setPageNumber(pageNumber + 1)}>
+          <Button
+            variant="text"
+            sx={{ color: theme.palette.secondary.main }}
+            onClick={() => setPageNumber(pageNumber + 1)}
+          >
             Next Page
           </Button>
         </Box>
