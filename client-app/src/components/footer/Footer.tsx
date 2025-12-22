@@ -9,7 +9,7 @@ const Footer = () => {
     <Box
       display="flex"
       alignItems="center"
-      justifyContent="flex-start"
+      justifyContent="flex-end"
       width="100%"
       pl={2}
       sx={{

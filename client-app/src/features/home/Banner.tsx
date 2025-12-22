@@ -9,7 +9,7 @@ const Banner = () => {
     <Box
       sx={{
         width: "100%",
-        height: { xs: 310, sm: 330, md: 500 },
+        height: { xs: 310, sm: 330, md: 620 },
         position: "relative",
         display: "flex",
         alignItems: "center",

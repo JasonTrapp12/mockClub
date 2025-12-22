@@ -26,6 +26,9 @@ const MobileNav = ({ leftNavButtons, rightNavButtons }: IMobileNavProps) => {
 
   const toggleDrawer = () => setOpen(!open);
 
+  const handleLogoClick = () => {
+    navigate("/");
+  };
   return (
     <>
       <AppBar position="fixed">
@@ -42,6 +45,7 @@ const MobileNav = ({ leftNavButtons, rightNavButtons }: IMobileNavProps) => {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
+            onClick={handleLogoClick}
           />
           <IconButton
             onClick={toggleDrawer}
