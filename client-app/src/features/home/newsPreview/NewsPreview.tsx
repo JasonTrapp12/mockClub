@@ -12,8 +12,14 @@ const NewsPreview = () => {
   const theme = useTheme();
   const smallScreen = useSmallScreen();
   const [pageNumber, setPageNumber] = useState(1);
-
   const pageStartIndex = (pageNumber - 1) * 4;
+
+  const sortedNews = [...news].sort(
+    (a, b) => b.date.getTime() - a.date.getTime()
+  );
+
+  const pagedNews = sortedNews.slice(pageStartIndex, pageStartIndex + 4);
+
   return (
     <Grid
       container
@@ -46,17 +52,47 @@ const NewsPreview = () => {
           <SearchBar />
         </Box>
       </Grid>
+      {pagedNews.length === 0 ? (
+        <Grid size={12}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            py={10}
+            textAlign="center"
+            sx={{
+              border: `2px dashed ${theme.palette.secondary.main}`,
+              borderRadius: 2,
+              opacity: 0.8,
+            }}
+          >
+            <NewspaperIcon
+              sx={{
+                fontSize: 64,
+                color: theme.palette.text.disabled,
+                mb: 2,
+              }}
+            />
 
-      {news
-        .sort((a, b) => b.date.getTime() - a.date.getTime())
-        .slice(pageStartIndex, pageStartIndex + 4)
-        .map((newsItem) => {
-          return (
-            <Grid size={smallScreen ? 12 : 3} key={newsItem.id}>
-              <NewsPreviewTile news={newsItem} />
-            </Grid>
-          );
-        })}
+            <Typography
+              variant="h5"
+              color={theme.palette.text.primary}
+              fontWeight={600}
+              mb={1}
+            >
+              No News Yet...
+            </Typography>
+          </Box>
+        </Grid>
+      ) : (
+        pagedNews.map((newsItem) => (
+          <Grid size={smallScreen ? 12 : 3} key={newsItem.id}>
+            <NewsPreviewTile news={newsItem} />
+          </Grid>
+        ))
+      )}
+
       <Grid size={12} display="flex" justifyContent="flex-end">
         <Box>
           <Button

@@ -62,3 +62,4 @@ export const news: INews[] = [
       "The official league schedule for the upcoming season has been released.",
   },
 ];
+// export const news: INews[] = [];
