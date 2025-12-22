@@ -6,6 +6,8 @@ import Footer from "./components/footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "./features/aboutUs/AboutUs";
 import ContactUs from "./features/contactUs/ContactUs";
+import NewsArticle from "./features/news/NewsArticle";
+import Programs from "./features/programs/Programs";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/news/:id" element={<NewsArticle />} />
+          <Route path="/programs" element={<Programs />} />
         </Routes>
       </Box>
       <Footer />

@@ -47,13 +47,16 @@ const NewsPreview = () => {
         </Box>
       </Grid>
 
-      {news.slice(pageStartIndex, pageStartIndex + 4).map((newsItem) => {
-        return (
-          <Grid size={smallScreen ? 12 : 3} key={newsItem.id}>
-            <NewsPreviewTile news={newsItem} />
-          </Grid>
-        );
-      })}
+      {news
+        .sort((a, b) => b.date.getTime() - a.date.getTime())
+        .slice(pageStartIndex, pageStartIndex + 4)
+        .map((newsItem) => {
+          return (
+            <Grid size={smallScreen ? 12 : 3} key={newsItem.id}>
+              <NewsPreviewTile news={newsItem} />
+            </Grid>
+          );
+        })}
       <Grid size={12} display="flex" justifyContent="flex-end">
         <Box>
           <Button

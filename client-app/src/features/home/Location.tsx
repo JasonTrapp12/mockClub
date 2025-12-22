@@ -11,6 +11,8 @@ const Location = () => {
         backgroundColor: "#2b2a2aff",
         width: "100%",
         py: { xs: 6, md: 10 },
+        // borderTop: "1px solid rgba(255,255,255,0.08)",
+        // borderBottom: "1px solid rgba(255,255,255,0.08)",
       }}
     >
       <Grid
@@ -36,6 +38,7 @@ const Location = () => {
               backgroundPosition: "center",
               borderRadius: 2,
               overflow: "hidden",
+              border: `2px solid ${theme.palette.text.secondary}`,
             }}
           >
             <Box
@@ -61,7 +64,6 @@ const Location = () => {
           </Box>
         </Grid>
 
-        {/* RIGHT SIDE */}
         <Grid size={{ xs: 12, md: 8 }}>
           <Box
             sx={{
@@ -69,6 +71,7 @@ const Location = () => {
               minHeight: 320,
               borderRadius: 2,
               overflow: "hidden",
+              border: `2px solid ${theme.palette.text.secondary}`,
             }}
           >
             <MapsEmbed />

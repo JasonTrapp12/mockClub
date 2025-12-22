@@ -1,6 +1,7 @@
 import { Box, Card, CardHeader, useTheme } from "@mui/material";
 import type { INews } from "../../../models/News";
 import defaultNews from "assets/default-news.png";
+import { useNavigate } from "react-router-dom";
 
 interface INewsPreviewTileProps {
   news: INews;
@@ -8,6 +9,11 @@ interface INewsPreviewTileProps {
 const NewsPreviewTile = (props: INewsPreviewTileProps) => {
   const { news } = props;
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/news/${news.id}`);
+  };
   return (
     <Card
       sx={{
@@ -25,6 +31,7 @@ const NewsPreviewTile = (props: INewsPreviewTileProps) => {
         height: { xs: 350, sm: 380, md: 400 },
         mb: 2,
       }}
+      onClick={handleClick}
     >
       <CardHeader
         title={news.title}
