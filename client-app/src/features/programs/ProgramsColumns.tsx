@@ -1,5 +1,5 @@
-import type { GridColDef } from "@mui/x-data-grid";
-import { Typography } from "@mui/material";
+import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import { Link, Typography } from "@mui/material";
 
 export const programsColumns: GridColDef[] = [
   {
@@ -36,5 +36,10 @@ export const programsColumns: GridColDef[] = [
     flex: 1,
     minWidth: 160,
     renderHeader: () => <Typography fontWeight={700}>Email</Typography>,
+    renderCell: (params: GridRenderCellParams) => (
+      <Link href={`mailto:${params.value}`} underline="hover" color="primary">
+        {params.value}
+      </Link>
+    ),
   },
 ];

@@ -12,13 +12,14 @@ const NewsPreview = () => {
   const theme = useTheme();
   const smallScreen = useSmallScreen();
   const [pageNumber, setPageNumber] = useState(1);
-  const pageStartIndex = (pageNumber - 1) * 4;
+  const pageSize = 4;
+  const pageStartIndex = (pageNumber - 1) * pageSize;
 
   const sortedNews = [...news].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
 
-  const pagedNews = sortedNews.slice(pageStartIndex, pageStartIndex + 4);
+  const pagedNews = sortedNews.slice(pageStartIndex, pageStartIndex + pageSize);
 
   return (
     <Grid
@@ -87,7 +88,7 @@ const NewsPreview = () => {
         </Grid>
       ) : (
         pagedNews.map((newsItem) => (
-          <Grid size={smallScreen ? 12 : 3} key={newsItem.id}>
+          <Grid size={smallScreen ? 12 : 12 / pageSize} key={newsItem.id}>
             <NewsPreviewTile news={newsItem} />
           </Grid>
         ))
@@ -109,7 +110,7 @@ const NewsPreview = () => {
             variant="text"
             sx={{ color: theme.palette.secondary.main }}
             onClick={() =>
-              pageNumber < news.length / 4
+              pageNumber < news.length / pageSize
                 ? setPageNumber(pageNumber + 1)
                 : null
             }
