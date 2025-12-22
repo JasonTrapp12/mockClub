@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export interface IPartner {
   image: string;
@@ -7,7 +7,6 @@ export interface IPartner {
 }
 
 const PartnerTile = (partner: IPartner) => {
-  const theme = useTheme();
   return (
     <Box
       sx={{

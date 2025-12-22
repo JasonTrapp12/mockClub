@@ -9,6 +9,12 @@ export interface IContactUsTileProps {
 const ContactUsTile = (props: IContactUsTileProps) => {
   const { icon, title, content, link } = props;
   const theme = useTheme();
+
+  const handleClick = () => {
+    if (link) {
+      window.open(link, "_blank");
+    }
+  };
   return (
     <Box
       display="flex"
@@ -24,6 +30,7 @@ const ContactUsTile = (props: IContactUsTileProps) => {
       alignContent="center"
       alignItems="center"
       justifyItems="center"
+      onClick={handleClick}
     >
       <Icon>{icon}</Icon>
       <Box sx={{ fontSize: "16px", fontWeight: "bold", marginTop: "8px" }}>

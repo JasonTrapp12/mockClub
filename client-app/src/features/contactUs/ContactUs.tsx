@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, useTheme } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
 import PageBanner from "../../components/common/PageBanner";
 import type { IContactUsTileProps } from "./ContactUsTile";
@@ -14,26 +14,29 @@ const ContactUsTiles: IContactUsTileProps[] = [
     icon: <PhoneIcon />,
     title: "Phone",
     content: "+1234567890",
+    link: "tel:+1234567890",
   },
   {
     icon: <EmailIcon />,
     title: "Email",
     content: "contact@example.com",
+    link: "mailto:contact@example.com",
   },
   {
     icon: <FacebookIcon />,
     title: "Facebook",
     content: "https://www.facebook.com/example",
+    link: "https://www.facebook.com/example",
   },
   {
     icon: <InstagramIcon />,
     title: "Instagram",
     content: "@example",
+    link: "https://www.instagram.com/example",
   },
 ];
 
 const ContactUs = () => {
-  const theme = useTheme();
   const smallScreen = useSmallScreen();
   return (
     <Stack

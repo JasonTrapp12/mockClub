@@ -1,5 +1,4 @@
 import { Box, Grid, Typography, useTheme } from "@mui/material";
-import SearchBar from "../../../components/common/SearchBar";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import { partners } from "../../../mockData/partners";
 import PartnerTile from "./PartnerTile";

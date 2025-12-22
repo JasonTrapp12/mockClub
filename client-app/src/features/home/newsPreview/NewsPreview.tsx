@@ -5,6 +5,8 @@ import { useSmallScreen } from "../../../hooks/useSmallScreen";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import SearchBar from "../../../components/common/SearchBar";
 import { useState } from "react";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const NewsPreview = () => {
   const theme = useTheme();
@@ -57,14 +59,22 @@ const NewsPreview = () => {
           <Button
             variant="text"
             sx={{ color: theme.palette.secondary.main }}
-            onClick={() => setPageNumber(pageNumber - 1)}
+            onClick={() =>
+              pageNumber > 1 ? setPageNumber(pageNumber - 1) : null
+            }
+            startIcon={<ArrowBackIosIcon />}
           >
             Previous Page
           </Button>
           <Button
             variant="text"
             sx={{ color: theme.palette.secondary.main }}
-            onClick={() => setPageNumber(pageNumber + 1)}
+            onClick={() =>
+              pageNumber < news.length / 4
+                ? setPageNumber(pageNumber + 1)
+                : null
+            }
+            endIcon={<ArrowForwardIosIcon />}
           >
             Next Page
           </Button>
