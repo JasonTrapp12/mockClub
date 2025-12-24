@@ -8,6 +8,7 @@ import AboutUs from "./features/aboutUs/AboutUs";
 import ContactUs from "./features/contactUs/ContactUs";
 import NewsArticle from "./features/news/NewsArticle";
 import Programs from "./features/programs/Programs";
+import SnackbarContainer from "./components/modals/SnackbarContainer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/programs" element={<Programs />} />
         </Routes>
       </Box>
+      <SnackbarContainer />
       <Footer />
     </Stack>
   );

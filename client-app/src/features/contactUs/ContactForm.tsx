@@ -1,5 +1,6 @@
 import { Button, Stack, TextField, Typography, useTheme } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import { useModalStore } from "../../stores/useModalStore";
 
 interface IContactFormValues {
   name: string;
@@ -15,6 +16,7 @@ const defaultFormValues: IContactFormValues = {
 
 const ContactForm = () => {
   const theme = useTheme();
+  const { setSnackbarOpen } = useModalStore();
   const {
     handleSubmit,
     control,
@@ -25,6 +27,7 @@ const ContactForm = () => {
 
   const onSubmit = (data: IContactFormValues) => {
     console.log(data);
+    setSnackbarOpen(true);
   };
 
   return (

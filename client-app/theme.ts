@@ -17,6 +17,10 @@ export const theme = createTheme({
       secondary: "#FFFFFF",
       disabled: "#706b6bff",
     },
+    success: {
+      main: "#00a451",
+      light: "#b6eacd",
+    },
   },
   typography: {
     fontFamily: `
