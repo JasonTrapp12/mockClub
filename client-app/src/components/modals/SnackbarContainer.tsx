@@ -24,10 +24,11 @@ const SnackbarContainer = () => {
         sx={{
           backgroundColor: theme.palette.success.light,
           p: 2,
+          mb: 1,
           boxShadow: theme.shadows[2],
         }}
-        height={smallScreen ? 100 : 200}
-        width={smallScreen ? 150 : 500}
+        //height={smallScreen ? 100 : 200}
+        width={smallScreen ? "100%" : 500}
         borderBottom={`2px solid ${theme.palette.success.main}`}
         borderRadius={4}
       >
