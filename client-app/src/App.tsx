@@ -9,8 +9,10 @@ import ContactUs from "./features/contactUs/ContactUs";
 import NewsArticle from "./features/news/NewsArticle";
 import Programs from "./features/programs/Programs";
 import SnackbarContainer from "./components/modals/SnackbarContainer";
+import { useModalStore } from "./stores/useModalStore";
 
 function App() {
+  const { snackbar } = useModalStore();
   return (
     <Stack height="100vh" width="100%" sx={{ overflowX: "hidden" }}>
       <Navbar />
@@ -23,7 +25,7 @@ function App() {
           <Route path="/programs" element={<Programs />} />
         </Routes>
       </Box>
-      <SnackbarContainer />
+      <SnackbarContainer {...snackbar} />
       <Footer />
     </Stack>
   );

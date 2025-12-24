@@ -27,7 +27,7 @@ const ContactForm = () => {
 
   const onSubmit = (data: IContactFormValues) => {
     console.log(data);
-    setSnackbarOpen(true);
+    setSnackbarOpen({ open: true, message: "Message sent successfully." });
   };
 
   return (

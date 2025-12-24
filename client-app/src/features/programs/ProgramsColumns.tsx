@@ -1,5 +1,7 @@
 import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { Link, Typography } from "@mui/material";
+import { Box, IconButton, Link, Typography } from "@mui/material";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import EmailCell from "./EmailCell";
 
 export const programsColumns: GridColDef[] = [
   {
@@ -34,12 +36,10 @@ export const programsColumns: GridColDef[] = [
     field: "coachEmail",
     headerName: "Email",
     flex: 1,
-    minWidth: 160,
+    minWidth: 330,
     renderHeader: () => <Typography fontWeight={700}>Email</Typography>,
     renderCell: (params: GridRenderCellParams) => (
-      <Link href={`mailto:${params.value}`} underline="hover">
-        {params.value}
-      </Link>
+      <EmailCell email={params.value as string} />
     ),
   },
 ];

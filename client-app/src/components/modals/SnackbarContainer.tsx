@@ -10,13 +10,15 @@ import { useModalStore } from "../../stores/useModalStore";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
 import CloseIcon from "@mui/icons-material/Close";
+import type { ISnackbarContainer } from "../../models/SnackbarContainer";
 
-const SnackbarContainer = () => {
-  const { snackbarOpen, setSnackbarOpen } = useModalStore();
+const SnackbarContainer = (props: ISnackbarContainer) => {
+  const { message, open } = props;
+  const { snackbar, setSnackbarOpen } = useModalStore();
   const theme = useTheme();
   const smallScreen = useSmallScreen();
   return (
-    <Snackbar open={snackbarOpen} onClose={() => setSnackbarOpen(false)}>
+    <Snackbar open={open} onClose={() => setSnackbarOpen({ open: false })}>
       <Box
         display="flex"
         gap={1}
@@ -39,14 +41,14 @@ const SnackbarContainer = () => {
               />
               <Typography variant="h6">Success</Typography>
             </Box>
-            <IconButton onClick={() => setSnackbarOpen(false)}>
+            <IconButton onClick={() => setSnackbarOpen({ open: false })}>
               <CloseIcon sx={{ color: theme.palette.text.disabled }} />
             </IconButton>
           </Box>
 
           <Box>
             <Typography variant="subtitle1" ml={4}>
-              Message sent successfully!
+              {message ?? ""}
             </Typography>
           </Box>
         </Stack>
