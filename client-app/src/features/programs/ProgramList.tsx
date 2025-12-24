@@ -44,15 +44,17 @@ const ProgramList = (props: IProgramListProps) => {
           borderRadius: 4,
           boxShadow: theme.shadows[5],
           "& .MuiDataGrid-columnHeaders, & .MuiDataGrid-columnHeader": {
-            backgroundColor: alpha(theme.palette.secondary.main, 0.22),
+            backgroundColor: alpha(theme.palette.secondary.main, 0.6),
           },
 
           "& .MuiDataGrid-columnHeader": {
-            color: theme.palette.text.primary,
-            fontWeight: 700,
+            color: theme.palette.text.secondary,
           },
-          "& .MuiDataGrid-cell": {
-            color: theme.palette.text.primary,
+          "& .MuiDataGrid-row:nth-of-type(odd)": {
+            backgroundColor: alpha(theme.palette.secondary.main, 0.1),
+          },
+          "& .MuiDataGrid-row:nth-of-type(even)": {
+            backgroundColor: alpha(theme.palette.background.paper, 0.05),
           },
         }}
       />
