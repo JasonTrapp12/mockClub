@@ -1,9 +1,11 @@
 import { Box, Grid, Paper, Typography, useTheme } from "@mui/material";
 import fieldImage from "assets/field.jpg";
 import MapsEmbed from "./MapsEmbed";
+import { useSmallScreen } from "../../hooks/useSmallScreen";
 
 const Location = () => {
   const theme = useTheme();
+  const smallScreen = useSmallScreen();
 
   return (
     <Paper
@@ -28,7 +30,6 @@ const Location = () => {
           <Box
             sx={{
               height: "100%",
-              minHeight: 320,
               position: "relative",
               display: "flex",
               alignItems: "center",
@@ -68,9 +69,8 @@ const Location = () => {
         <Grid size={{ xs: 12, md: 8 }}>
           <Box
             sx={{
+              height: "100%",
               borderRadius: 2,
-              width: "1000px",
-              height: "400px",
               overflow: "hidden",
               border: `2px solid ${theme.palette.background.paper}`,
             }}

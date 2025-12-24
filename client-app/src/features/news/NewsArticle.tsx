@@ -5,9 +5,8 @@ import type { INews } from "../../models/News";
 
 const NewsArticle = () => {
   const theme = useTheme();
-  const { id } = useParams<{ id: string }>(); // gets /news/:id
+  const { id } = useParams<{ id: string }>();
 
-  // find the article by ID
   const article: INews | undefined = news.find((n) => n.id === id);
 
   if (!article) {
