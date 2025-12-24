@@ -8,7 +8,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ContactUsTile from "./ContactUsTile";
 import ContactForm from "./ContactForm";
-import ModalContainer from "../../components/modals/SnackbarContainer";
 
 const ContactUsTiles: IContactUsTileProps[] = [
   {

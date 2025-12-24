@@ -3,7 +3,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import type { IProgram } from "../../models/Program";
 import { programsColumns } from "./ProgramsColumns";
 import { alpha } from "@mui/material/styles";
-import { useSmallScreen } from "../../hooks/useSmallScreen";
 
 interface IProgramListProps {
   programs: IProgram[];
@@ -13,13 +12,9 @@ interface IProgramListProps {
 const ProgramList = (props: IProgramListProps) => {
   const { programs, gender } = props;
   const theme = useTheme();
-  const smallScreen = useSmallScreen();
 
   return (
     <Stack>
-      {/* <Typography color={theme.palette.text.primary} variant="h2" mb={3}>
-        {gender} Programs
-      </Typography> */}
       <Typography
         variant="h2"
         sx={{ letterSpacing: 3, textAlign: "start", mb: 3 }}

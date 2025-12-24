@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
+import { AppBar, Box, Toolbar } from "@mui/material";
 import logo from "assets/logo.png";
 import NavButton from "./NavButton";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
@@ -7,7 +7,6 @@ import MobileNav from "./MobileNav";
 import { leftNavButtons, rightNavButtons } from "./navButtons";
 
 const Navbar = () => {
-  const theme = useTheme();
   const smallScreen = useSmallScreen();
   const navigate = useNavigate();
 
