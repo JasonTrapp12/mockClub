@@ -1,11 +1,9 @@
 import { Box, Grid, Paper, Typography, useTheme } from "@mui/material";
 import fieldImage from "assets/field.jpg";
 import MapsEmbed from "./MapsEmbed";
-import { useSmallScreen } from "../../hooks/useSmallScreen";
 
 const Location = () => {
   const theme = useTheme();
-  const smallScreen = useSmallScreen();
 
   return (
     <Paper
@@ -14,8 +12,6 @@ const Location = () => {
         backgroundColor: theme.palette.primary.main,
         width: "100%",
         py: { xs: 6, md: 10 },
-        // borderTop: "1px solid rgba(255,255,255,0.08)",
-        // borderBottom: "1px solid rgba(255,255,255,0.08)",
       }}
     >
       <Grid
