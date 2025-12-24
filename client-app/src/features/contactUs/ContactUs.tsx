@@ -1,4 +1,4 @@
-import { Grid, Stack } from "@mui/material";
+import { Grid, Stack, Toolbar } from "@mui/material";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
 import PageBanner from "../../components/common/PageBanner";
 import type { IContactUsTileProps } from "./ContactUsTile";
@@ -39,23 +39,20 @@ const ContactUsTiles: IContactUsTileProps[] = [
 const ContactUs = () => {
   const smallScreen = useSmallScreen();
   return (
-    <Stack
-      width="100%"
-      height="100%"
-      pt={smallScreen ? 5 : 18}
-      spacing={5}
-      alignItems="center"
-    >
-      <PageBanner title="Contact Us" />
-      <Grid container spacing={2} width="95%">
-        {ContactUsTiles.map((tile) => (
-          <Grid size={smallScreen ? 12 : 3} key={tile.title}>
-            <ContactUsTile {...tile} />
-          </Grid>
-        ))}
-      </Grid>
-      <br />
-      <ContactForm />
+    <Stack width="100%" height="100%" alignItems="center">
+      <Toolbar />
+      <Stack width="100%" alignItems="center" spacing={5}>
+        <PageBanner title="Contact Us" />
+        <Grid container spacing={2} width="95%">
+          {ContactUsTiles.map((tile) => (
+            <Grid size={smallScreen ? 12 : 3} key={tile.title}>
+              <ContactUsTile {...tile} />
+            </Grid>
+          ))}
+        </Grid>
+        <br />
+        <ContactForm />
+      </Stack>
     </Stack>
   );
 };

@@ -22,7 +22,7 @@ const Partners = () => {
             display="flex"
             gap={1}
             justifyContent="center"
-            alignContent="center"
+            alignItems="center"
           >
             <HandshakeIcon
               fontSize="large"

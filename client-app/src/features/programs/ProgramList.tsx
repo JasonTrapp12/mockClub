@@ -49,6 +49,8 @@ const ProgramList = (props: IProgramListProps) => {
 
           "& .MuiDataGrid-columnHeader": {
             color: theme.palette.text.secondary,
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
           },
           "& .MuiDataGrid-row:nth-of-type(odd)": {
             backgroundColor: alpha(theme.palette.secondary.main, 0.1),

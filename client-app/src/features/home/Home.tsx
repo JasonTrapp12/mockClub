@@ -6,11 +6,13 @@ import Partners from "./partners/Partners";
 
 const Home = () => {
   return (
-    <Stack width="100%" spacing={4}>
+    <Stack width="100%">
       <Banner />
-      <NewsPreview />
-      <Location />
-      <Partners />
+      <Stack spacing={4}>
+        <NewsPreview />
+        <Location />
+        <Partners />
+      </Stack>
     </Stack>
   );
 };

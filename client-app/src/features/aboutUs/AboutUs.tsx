@@ -1,4 +1,4 @@
-import { Stack, Typography, useTheme } from "@mui/material";
+import { Stack, Toolbar, Typography, useTheme } from "@mui/material";
 import { useSmallScreen } from "../../hooks/useSmallScreen";
 import PageBanner from "../../components/common/PageBanner";
 
@@ -6,13 +6,8 @@ const AboutUs = () => {
   const theme = useTheme();
   const smallScreen = useSmallScreen();
   return (
-    <Stack
-      width="100%"
-      height="100%"
-      pt={smallScreen ? 5 : 18}
-      spacing={5}
-      alignItems="center"
-    >
+    <Stack width="100%" height="100%" spacing={5} alignItems="center">
+      <Toolbar />
       <PageBanner title="About Us" />
       <Typography
         variant="h6"

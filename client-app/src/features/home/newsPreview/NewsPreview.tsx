@@ -36,7 +36,7 @@ const NewsPreview = () => {
             display="flex"
             gap={1}
             justifyContent="center"
-            alignContent="center"
+            alignItems="center"
           >
             <NewspaperIcon
               fontSize="large"
