@@ -37,7 +37,7 @@ export const programsColumns: GridColDef[] = [
     minWidth: 160,
     renderHeader: () => <Typography fontWeight={700}>Email</Typography>,
     renderCell: (params: GridRenderCellParams) => (
-      <Link href={`mailto:${params.value}`} underline="hover" color="primary">
+      <Link href={`mailto:${params.value}`} underline="hover">
         {params.value}
       </Link>
     ),

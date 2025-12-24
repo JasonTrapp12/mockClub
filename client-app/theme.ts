@@ -3,15 +3,14 @@ import { createTheme } from "@mui/material/styles";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#01143d",
-      //light: "#01143d",
+      main: "#36262a",
     },
     secondary: {
-      main: "#30606c",
-      //light: "#9ad9e9ff",
+      main: "#6b333b",
     },
     background: {
-      default: "#fcfbfbff",
+      default: "#fcf6fe",
+      paper: "#dbe8e2",
     },
     text: {
       primary: "#000000",
@@ -20,13 +19,41 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Bebas Neue", "Arial", sans-serif',
-    h1: { fontFamily: '"Bebas Neue", sans-serif', fontWeight: 700 },
-    h2: { fontFamily: '"Bebas Neue", sans-serif', fontWeight: 700 },
-    h3: { fontFamily: '"Bebas Neue", sans-serif', fontWeight: 700 },
-    subtitle1: { fontFamily: '"Bebas Neue", sans-serif', fontWeight: 400 },
+    fontFamily: `
+      -apple-system,
+      BlinkMacSystemFont,
+      "SF Pro Text",
+      "SF Pro Display",
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif
+    `,
+
+    h1: {
+      fontFamily: '"Bebas Neue", sans-serif',
+      fontWeight: 700,
+      letterSpacing: "0.08em",
+    },
+    h2: {
+      fontFamily: '"Bebas Neue", sans-serif',
+      fontWeight: 700,
+      letterSpacing: "0.08em",
+    },
+    h3: {
+      fontFamily: '"Bebas Neue", sans-serif',
+      fontWeight: 700,
+      letterSpacing: "0.06em",
+    },
+
+    subtitle1: {
+      fontWeight: 500,
+    },
+
     button: {
       fontFamily: '"Bebas Neue", sans-serif',
+      letterSpacing: "0.1em",
       textTransform: "uppercase",
     },
   },
@@ -34,7 +61,7 @@ export const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         colorPrimary: {
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "#dbe8e2",
           color: "#000000",
         },
       },
@@ -47,5 +74,12 @@ export const theme = createTheme({
         },
       },
     },
+    // MuiTypography: {
+    //   styleOverrides: {
+    //     root: {
+    //       textTransform: "uppercase",
+    //     },
+    //   },
+    // },
   },
 });

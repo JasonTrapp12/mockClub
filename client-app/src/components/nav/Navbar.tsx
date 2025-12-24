@@ -33,20 +33,21 @@ const Navbar = () => {
           ))}
           <Box
             sx={{
-              //width: "100%",
-              //height: { xs: 300, sm: 330, md: 500 },
-              height: smallScreen ? 100 : 150,
-              width: smallScreen ? 100 : 150,
-              position: "relative",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: theme.palette.text.secondary,
-              backgroundImage: `url(${logo})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
             }}
-          />
+          >
+            <img
+              src={logo}
+              alt="Logo"
+              style={{
+                height: smallScreen ? 80 : 120,
+                width: "auto",
+              }}
+            />
+          </Box>
+
           {rightNavButtons.map((button) => (
             <Box key={button.label}>
               <NavButton onClick={() => handleNavButtonClick(button.path)}>

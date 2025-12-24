@@ -13,9 +13,9 @@ const Footer = () => {
       width="100%"
       pl={2}
       sx={{
-        backgroundColor: theme.palette.text.primary,
-        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.background.paper,
         height: smallScreen ? "120px" : "140px",
+        boxShadow: "inset 0 6px 10px -6px rgba(0,0,0,0.25)",
       }}
     >
       <Box

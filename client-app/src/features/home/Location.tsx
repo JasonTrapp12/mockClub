@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Paper, Typography, useTheme } from "@mui/material";
 import fieldImage from "assets/field.jpg";
 import MapsEmbed from "./MapsEmbed";
 
@@ -6,9 +6,10 @@ const Location = () => {
   const theme = useTheme();
 
   return (
-    <Box
+    <Paper
+      elevation={8}
       sx={{
-        backgroundColor: "#2b2a2aff",
+        backgroundColor: theme.palette.primary.main,
         width: "100%",
         py: { xs: 6, md: 10 },
         // borderTop: "1px solid rgba(255,255,255,0.08)",
@@ -32,13 +33,13 @@ const Location = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: theme.palette.text.secondary,
+              color: theme.palette.background.paper,
               backgroundImage: `url(${fieldImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               borderRadius: 2,
               overflow: "hidden",
-              border: `2px solid ${theme.palette.text.secondary}`,
+              border: `2px solid ${theme.palette.background.paper}`,
             }}
           >
             <Box
@@ -67,18 +68,18 @@ const Location = () => {
         <Grid size={{ xs: 12, md: 8 }}>
           <Box
             sx={{
-              height: "100%",
-              minHeight: 320,
               borderRadius: 2,
+              width: "1000px",
+              height: "400px",
               overflow: "hidden",
-              border: `2px solid ${theme.palette.text.secondary}`,
+              border: `2px solid ${theme.palette.background.paper}`,
             }}
           >
             <MapsEmbed />
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </Paper>
   );
 };
 
