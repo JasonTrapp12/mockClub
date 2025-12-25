@@ -15,12 +15,22 @@ const NewsPreview = () => {
   const pageSize = 4;
   const pageStartIndex = (pageNumber - 1) * pageSize;
 
-  const sortedNews = [...news].sort(
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (value: string) => {
+    setSearchTerm(value);
+    setPageNumber(1);
+  };
+
+  const filteredNews = news.filter((n) =>
+    n.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const sortedNews = [...filteredNews].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
 
   const pagedNews = sortedNews.slice(pageStartIndex, pageStartIndex + pageSize);
-
   return (
     <Grid
       container
@@ -50,10 +60,10 @@ const NewsPreview = () => {
               News
             </Typography>
           </Box>
-          <SearchBar />
+          <SearchBar onChange={handleSearchChange} />
         </Box>
       </Grid>
-      {pagedNews.length === 0 ? (
+      {filteredNews.length === 0 ? (
         <Grid size={12}>
           <Box
             display="flex"
@@ -110,7 +120,7 @@ const NewsPreview = () => {
             variant="text"
             sx={{ color: theme.palette.secondary.main }}
             onClick={() =>
-              pageNumber < news.length / pageSize
+              pageNumber < Math.ceil(filteredNews.length / pageSize)
                 ? setPageNumber(pageNumber + 1)
                 : null
             }
