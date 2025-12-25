@@ -14,7 +14,7 @@ import type { ISnackbarContainer } from "../../models/SnackbarContainer";
 
 const SnackbarContainer = (props: ISnackbarContainer) => {
   const { message, open } = props;
-  const { snackbar, setSnackbarOpen } = useModalStore();
+  const { setSnackbarOpen } = useModalStore();
   const theme = useTheme();
   const smallScreen = useSmallScreen();
   return (

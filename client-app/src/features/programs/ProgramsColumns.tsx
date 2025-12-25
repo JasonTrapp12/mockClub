@@ -1,6 +1,5 @@
 import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { Box, IconButton, Link, Typography } from "@mui/material";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Typography } from "@mui/material";
 import EmailCell from "./EmailCell";
 
 export const programsColumns: GridColDef[] = [
