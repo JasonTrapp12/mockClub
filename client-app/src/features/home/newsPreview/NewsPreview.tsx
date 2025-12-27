@@ -1,36 +1,66 @@
-import { Box, Button, Grid, Typography, useTheme } from "@mui/material";
-import { news } from "../../../mockData/news";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Grid,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import NewsPreviewTile from "./NewsPreviewTile";
 import { useSmallScreen } from "../../../hooks/useSmallScreen";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import SearchBar from "../../../components/common/SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useNewsStore } from "../../../stores/useNewsStore";
 
 const NewsPreview = () => {
   const theme = useTheme();
   const smallScreen = useSmallScreen();
   const [pageNumber, setPageNumber] = useState(1);
+
   const pageSize = 4;
   const pageStartIndex = (pageNumber - 1) * pageSize;
-
   const [searchTerm, setSearchTerm] = useState("");
+  const { newsList, setNewsList, newsListLoading } = useNewsStore();
+
+  useEffect(() => {
+    if (!newsList) {
+      setNewsList();
+    }
+  }, [newsList, setNewsList]);
+
+  if (newsListLoading) {
+    return (
+      <Box
+        display="flex"
+        width="100%"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   const handleSearchChange = (value: string) => {
     setSearchTerm(value);
     setPageNumber(1);
   };
 
-  const filteredNews = news.filter((n) =>
-    n.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredNews = newsList
+    ? newsList.filter((n) =>
+        n.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : [];
 
   const sortedNews = [...filteredNews].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
 
   const pagedNews = sortedNews.slice(pageStartIndex, pageStartIndex + pageSize);
+
   return (
     <Grid
       container

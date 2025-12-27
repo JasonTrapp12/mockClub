@@ -40,7 +40,10 @@ const Partners = () => {
       </Grid>
       {partners.map((partner) => {
         return (
-          <Grid size={smallScreen ? 12 : 3}>
+          <Grid
+            key={partner.url || partner.caption}
+            size={smallScreen ? 12 : 3}
+          >
             <PartnerTile {...partner} />
           </Grid>
         );
