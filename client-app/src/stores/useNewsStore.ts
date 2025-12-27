@@ -27,10 +27,12 @@ export const useNewsStore = create<INewsStore>((set) => ({
     if (error) {
       console.error(error);
     } else {
+      console.log(data);
       const formattedData = data.map((news) => ({
         ...news,
         date: new Date(news.date),
       }));
+      console.log(formattedData);
       set({ newsList: formattedData });
     }
     set({ newsListLoading: false });

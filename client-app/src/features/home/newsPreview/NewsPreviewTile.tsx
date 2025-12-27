@@ -14,6 +14,11 @@ const NewsPreviewTile = (props: INewsPreviewTileProps) => {
   const handleClick = () => {
     navigate(`/news/${news.id}`);
   };
+
+  const formattedDate = news.date
+    ? new Intl.DateTimeFormat("en-US").format(news.date)
+    : "";
+
   return (
     <Card
       sx={{
@@ -35,9 +40,7 @@ const NewsPreviewTile = (props: INewsPreviewTileProps) => {
     >
       <CardHeader
         title={news.title}
-        subheader={`Date: ${news.date.getMonth()}/${
-          news.date.getDate() + 1
-        }/${news.date.getFullYear()}`}
+        subheader={`Date: ${formattedDate}`}
         slotProps={{
           subheader: {
             sx: {

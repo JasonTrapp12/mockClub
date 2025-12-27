@@ -10,6 +10,7 @@ import NewsArticle from "./features/news/NewsArticle";
 import Programs from "./features/programs/Programs";
 import SnackbarContainer from "./components/modals/SnackbarContainer";
 import { useModalStore } from "./stores/useModalStore";
+import Register from "./features/register/Register";
 
 function App() {
   const { snackbar } = useModalStore();
@@ -23,6 +24,7 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/news/:id" element={<NewsArticle />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Box>
       <SnackbarContainer {...snackbar} />

@@ -11,10 +11,10 @@ const PartnerTile = (partner: IPartner) => {
     <Box
       sx={{
         width: "100%",
-        maxWidth: 300,
-        height: 200,
+        maxWidth: 250,
+        height: 250,
         display: "flex",
-        alignItems: "center",
+        alignContent: "center",
         justifyContent: "center",
         borderRadius: 2,
         flexDirection: "column",

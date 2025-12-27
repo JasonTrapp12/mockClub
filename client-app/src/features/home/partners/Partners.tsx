@@ -12,12 +12,12 @@ const Partners = () => {
       container
       width="100%"
       height="100%"
-      padding={4}
+      paddingX={4}
       spacing={3}
       overflow="hidden"
     >
       <Grid size={12}>
-        <Box display="flex" alignItems="center" gap={5}>
+        <Box display="flex" alignItems="center" gap={5} width="100%">
           <Box
             display="flex"
             gap={1}
@@ -43,6 +43,7 @@ const Partners = () => {
           <Grid
             key={partner.url || partner.caption}
             size={smallScreen ? 12 : 3}
+            justifyItems="center"
           >
             <PartnerTile {...partner} />
           </Grid>

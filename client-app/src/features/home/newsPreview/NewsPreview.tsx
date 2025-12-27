@@ -70,7 +70,8 @@ const NewsPreview = () => {
       container
       width="100%"
       height="100%"
-      padding={4}
+      paddingTop={4}
+      paddingX={4}
       spacing={3}
       overflow="hidden"
     >
@@ -126,7 +127,7 @@ const NewsPreview = () => {
               fontWeight={600}
               mb={1}
             >
-              No News Yet...
+              No News Found...
             </Typography>
           </Box>
         </Grid>
