@@ -25,6 +25,8 @@ const ContactUsTile = (props: IContactUsTileProps) => {
         gap: 2,
         "&:hover": {
           cursor: link ? "pointer" : "default",
+          transform: "translateY(-2px)",
+          transition: "transform 0.2s ease",
         },
       }}
       alignContent="center"

@@ -7,8 +7,6 @@ import {
   useTheme,
 } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { news } from "../../mockData/news";
-import type { INews } from "../../models/News";
 import { useNewsStore } from "../../stores/useNewsStore";
 import { useEffect } from "react";
 

@@ -61,6 +61,10 @@ const NewsPreview = () => {
 
   const pagedNews = sortedNews.slice(pageStartIndex, pageStartIndex + pageSize);
 
+  const showPageOptions = () => {
+    return sortedNews.length > pageSize;
+  };
+
   return (
     <Grid
       container
@@ -134,32 +138,34 @@ const NewsPreview = () => {
         ))
       )}
 
-      <Grid size={12} display="flex" justifyContent="flex-end">
-        <Box>
-          <Button
-            variant="text"
-            sx={{ color: theme.palette.secondary.main }}
-            onClick={() =>
-              pageNumber > 1 ? setPageNumber(pageNumber - 1) : null
-            }
-            startIcon={<ArrowBackIosIcon />}
-          >
-            Previous Page
-          </Button>
-          <Button
-            variant="text"
-            sx={{ color: theme.palette.secondary.main }}
-            onClick={() =>
-              pageNumber < Math.ceil(filteredNews.length / pageSize)
-                ? setPageNumber(pageNumber + 1)
-                : null
-            }
-            endIcon={<ArrowForwardIosIcon />}
-          >
-            Next Page
-          </Button>
-        </Box>
-      </Grid>
+      {showPageOptions() && (
+        <Grid size={12} display="flex" justifyContent="flex-end">
+          <Box>
+            <Button
+              variant="text"
+              sx={{ color: theme.palette.secondary.main }}
+              onClick={() =>
+                pageNumber > 1 ? setPageNumber(pageNumber - 1) : null
+              }
+              startIcon={<ArrowBackIosIcon />}
+            >
+              Previous Page
+            </Button>
+            <Button
+              variant="text"
+              sx={{ color: theme.palette.secondary.main }}
+              onClick={() =>
+                pageNumber < Math.ceil(filteredNews.length / pageSize)
+                  ? setPageNumber(pageNumber + 1)
+                  : null
+              }
+              endIcon={<ArrowForwardIosIcon />}
+            >
+              Next Page
+            </Button>
+          </Box>
+        </Grid>
+      )}
     </Grid>
   );
 };

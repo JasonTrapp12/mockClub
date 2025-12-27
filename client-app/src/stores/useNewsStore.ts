@@ -1,8 +1,4 @@
 import { create } from "zustand";
-import {
-  defaultSnackbarContainer,
-  type ISnackbarContainer,
-} from "../models/SnackbarContainer";
 import type { INews } from "../models/News";
 import { supabase } from "../supabase/supabase";
 
